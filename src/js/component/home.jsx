@@ -21,7 +21,8 @@ const Home = () => {
 					})
 				})
 				if(response.status == 201) {
-					obtenerTareas()
+					await obtenerTareas()
+					setTarea("")
 					return true
 				}
 			} catch (error) {
@@ -43,7 +44,8 @@ const Home = () => {
 				headers: {"Content-Type":"application/json"} , 
 				
 			})
-			if(response.status == 200) {
+			console.log(response.status)
+			if(response.status == 204) {
 				obtenerTareas()
 				return true
 			}
